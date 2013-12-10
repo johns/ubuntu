@@ -1,0 +1,58 @@
+# These are the things to do, post-install, of an ubuntu 13.10 system
+# there are some manual steps (commented out).
+#
+sudo add-apt-repository -y ppa:atareao/atareao
+sudo apt-get -y update
+sudo apt-get -y install my-weather-indicator
+sudo apt-get -y install unity-tweak-tool
+sudo apt-get -y install gnome-tweak-tool
+sudo apt-get -y install synaptic
+sudo apt-get -y install compizconfig-settings-manager compiz-plugins-extra
+echo -e "[Re-enable Hibernate]\nIdentity=unix-user:*\nAction=org.freedesktop.upower.hibernate\n#ResultActive=yes" >> /var/lib/polkit-1/localauthority/50-local.d/hibernate.pkla
+#sudo xhost +SI:localuser:lightdm
+#sudo su lightdm -s /bin/bash
+#sudo vi /etc/lightdm/lightdm.conf.d/10-ubuntu.conf 
+sudo apt-get -y autoremove unity-lens-shopping
+sudo apt-get -y autoremove unity-lens-music
+sudo apt-get -y autoremove unity-lens-shopping
+sudo apt-get -y autoremove unity-lens-music
+sudo apt-get -y autoremove unity-lens-photos
+sudo apt-get -y autoremove unity-lens-gwibber
+sudo apt-get -y autoremove unity-lens-video
+gsettings set com.canonical.desktop.interface scrollbar-mode normal
+gsettings set com.canonical.indicator.session show-real-name-on-panel true
+#sudo vi /etc/default/apport
+sudo apt-get -y install gufw
+sudo apt-get -y install lm-sensors hddtemp psensor
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+sudo add-apt-repository -y ppa:noobslab/apps
+sudo apt-get -y update
+sudo apt-get -y install open-as-administrator
+#nautilus -q
+sudo apt-get install-y  flashplugin-installer
+sudo apt-get install -y qbittorrent
+sudo add-apt-repository -y ppa:fossfreedom/rhythmbox-plugins
+sudo apt-get update -y
+sudo apt-get install -y rhythmbox-plugins
+sudo apt-get install -y --install-suggests rhythmbox-plugin-complete
+sudo apt-get install -y ubuntu-restricted-extras
+sudo apt-get install -y gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321
+sudo apt-get install -y gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 --install-suggests
+sudo /usr/share/doc/libdvdread4/install-css.sh
+sudo apt-get -y install p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
+sudo add-apt-repository -y ppa:peterlevi/ppa
+sudo apt-get update -y
+sudo apt-get install variety -y
+sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+sudo echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
+sudo apt-get install oracle-java7-set-default
+###
+### Emergency use: reset unity
+###
+##sudo apt-get install dconf-tools
+##dconf reset -f /org/compiz/
+##setsid unity
+##unity --reset-icons
